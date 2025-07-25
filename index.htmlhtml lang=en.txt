@@ -1,0 +1,526 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>G.O.D Garden - The Future of Plant Care is Here</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="40" r="0.5" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="70" r="1.5" fill="rgba(255,255,255,0.05)"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grain)"/></svg>') repeat;
+            opacity: 0.3;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+            background: linear-gradient(45deg, #ffffff, #e8f5e8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero h2 {
+            font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+            font-weight: 400;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-primary {
+            display: inline-block;
+            background: linear-gradient(45deg, #4ecdc4, #44a08d);
+            color: white;
+            padding: 16px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .cta-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+        
+        .waitlist-form {
+            margin-top: 2rem;
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .email-input {
+            flex: 1;
+            min-width: 250px;
+            padding: 16px 20px;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 50px;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            font-size: 1rem;
+            backdrop-filter: blur(10px);
+        }
+        
+        .email-input::placeholder {
+            color: rgba(255,255,255,0.8);
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 100px 0;
+            background: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #2d3748;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #718096;
+            margin-bottom: 4rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+        
+        .feature-card {
+            text-align: center;
+            padding: 2rem;
+            border-radius: 20px;
+            background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #4ecdc4, #44a08d);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #2d3748;
+        }
+        
+        .feature-card p {
+            color: #4a5568;
+            line-height: 1.7;
+        }
+        
+        /* Community Section */
+        .community {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #e8f5e8, #d4f4dd);
+            position: relative;
+        }
+        
+        .community-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .community-text h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: #2d3748;
+        }
+        
+        .community-highlights {
+            list-style: none;
+            margin: 2rem 0;
+        }
+        
+        .community-highlights li {
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .community-highlights li::before {
+            content: '🌱';
+            font-size: 1.5rem;
+        }
+        
+        .marketplace-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+        
+        .marketplace-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .marketplace-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .marketplace-item h4 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #2d3748;
+        }
+        
+        /* Founder Section */
+        .founder {
+            padding: 100px 0;
+            background: white;
+        }
+        
+        .founder-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .founder-quote {
+            font-size: 1.3rem;
+            font-style: italic;
+            color: #4a5568;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+        
+        .founder-name {
+            font-weight: 600;
+            color: #2d3748;
+            font-size: 1.1rem;
+        }
+        
+        /* Final CTA */
+        .final-cta {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #2d3748, #4a5568);
+            color: white;
+            text-align: center;
+        }
+        
+        .final-cta h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .final-cta p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .community-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .marketplace-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .waitlist-form {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .email-input {
+                min-width: auto;
+                width: 100%;
+                max-width: 400px;
+            }
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .hero-content {
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        .feature-card {
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        .feature-card:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+        
+        .feature-card:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+        
+        .feature-card:nth-child(4) {
+            animation-delay: 0.6s;
+        }
+        
+        .feature-card:nth-child(5) {
+            animation-delay: 0.8s;
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Meet G.O.D Garden</h1>
+                <h2>The revolutionary plant identification app that transforms how you grow, care for, and connect with your green world</h2>
+                
+                <form class="waitlist-form" onsubmit="handleWaitlistSignup(event)">
+                    <input type="email" class="email-input" placeholder="Enter your email address" required>
+                    <button type="submit" class="cta-primary">Join the Waitlist</button>
+                </form>
+                
+                <p style="margin-top: 1rem; opacity: 0.8; font-size: 0.9rem;">
+                    🌱 Join 10,000+ plant lovers already on the waitlist
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Everything You Need to Grow</h2>
+            <p class="section-subtitle">From instant plant identification to personalized care tips, G.O.D Garden is your complete digital gardening ecosystem</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📸</div>
+                    <h3>Instant Plant ID</h3>
+                    <p>Simply snap a photo and get instant identification of any plant, along with detailed information about its care needs and characteristics.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🩺</div>
+                    <h3>Health Diagnosis</h3>
+                    <p>Spot problems before they become serious. Our AI analyzes your plants and provides expert diagnosis for diseases, pests, and nutrient deficiencies.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">💚</div>
+                    <h3>Personalized Care</h3>
+                    <p>Get customized care schedules, watering reminders, and wellness tips tailored to your specific plants and growing conditions.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🌍</div>
+                    <h3>Plant Community</h3>
+                    <p>Connect with fellow plant enthusiasts, share your garden journey, and learn from experienced growers in our vibrant community.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🛒</div>
+                    <h3>Curated Marketplace</h3>
+                    <p>Shop premium gardening tools, organic fertilizers, and wellness-focused plant products - all recommended specifically for your plants.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community & Marketplace Section -->
+    <section class="community">
+        <div class="container">
+            <div class="community-content">
+                <div class="community-text">
+                    <h2>More Than Just an App</h2>
+                    <p>G.O.D Garden is building the world's most supportive plant-loving community, where knowledge flows freely and everyone grows together.</p>
+                    
+                    <ul class="community-highlights">
+                        <li>Share plant photos and celebrate your growing victories</li>
+                        <li>Get expert advice from seasoned gardeners</li>
+                        <li>Join local plant swaps and community events</li>
+                        <li>Access exclusive plant care masterclasses</li>
+                    </ul>
+                </div>
+                
+                <div class="marketplace-grid">
+                    <div class="marketplace-item">
+                        <h4>🌿 Premium Tools</h4>
+                        <p>Hand-picked gardening essentials that make plant care effortless</p>
+                    </div>
+                    <div class="marketplace-item">
+                        <h4>🌱 Organic Solutions</h4>
+                        <p>Chemical-free fertilizers and treatments for healthier plants</p>
+                    </div>
+                    <div class="marketplace-item">
+                        <h4>🏠 Indoor Essentials</h4>
+                        <p>Everything you need for thriving houseplants and urban gardens</p>
+                    </div>
+                    <div class="marketplace-item">
+                        <h4>💚 Wellness Products</h4>
+                        <p>Plant-based products that enhance your health and home environment</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Founder's Note -->
+    <section class="founder">
+        <div class="container">
+            <div class="founder-content">
+                <h2 class="section-title">A Personal Mission</h2>
+                <blockquote class="founder-quote">
+                    "I started G.O.D Garden because I believe everyone deserves to experience the joy and wellness that comes from connecting with plants. Whether you're a complete beginner or a seasoned gardener, technology should make plant care more accessible, not more complicated. We're not just building an app - we're cultivating a movement toward healthier living through the power of plants."
+                </blockquote>
+                <p class="founder-name">— The G.O.D Garden Team</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <div class="container">
+            <h2>Ready to Transform Your Plant Journey?</h2>
+            <p>Be among the first to experience the future of digital gardening</p>
+            <button class="cta-primary" onclick="scrollToWaitlist()">Get Early Access</button>
+            <p style="margin-top: 1rem; opacity: 0.8; font-size: 0.9rem;">
+                Early access members get exclusive features and lifetime premium benefits
+            </p>
+        </div>
+    </section>
+
+    <script>
+        function handleWaitlistSignup(event) {
+            event.preventDefault();
+            const email = event.target.querySelector('input[type="email"]').value;
+            
+            // Here you would integrate with your email service (Mailchimp, ConvertKit, etc.)
+            // For now, we'll show a success message
+            alert(`Thanks for joining the waitlist! We'll send updates to ${email}`);
+            
+            // Clear the form
+            event.target.reset();
+        }
+        
+        function scrollToWaitlist() {
+            document.querySelector('.hero').scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        // Add smooth scrolling for better UX
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
